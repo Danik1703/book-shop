@@ -31,6 +31,10 @@ export class CartComponent {
     }
   }
 
+  onClearCart() {
+    this.store.dispatch({ type: '[Кошик] Очистити кошик' }); 
+  }
+
   getTotalPrice(items: CartItem[]): number {
     return items.reduce((total, item) => total + item.product.price * item.quantity, 0);
   }

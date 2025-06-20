@@ -3,10 +3,10 @@ import * as ProductsActions from './products.actions';
 import { Product } from '../../models/product.model';
 
 export interface ProductsState {
-  products: Product[]; // Исходный список всех товаров
-  filteredProducts: Product[]; // Отфильтрованный и отсортированный список товаров
-  loading: boolean; // Флаг загрузки
-  error: any; // Информация об ошибке
+  products: Product[]; 
+  filteredProducts: Product[]; 
+  loading: boolean; 
+  error: any; 
 }
 
 export const initialProductsState: ProductsState = {
@@ -20,24 +20,24 @@ export const productsReducer = createReducer(
   initialProductsState,
   on(ProductsActions.loadProducts, (state) => ({
     ...state,
-    loading: true, // Начинаем загрузку
+    loading: true, 
     error: null,
   })),
   on(ProductsActions.loadProductsSuccess, (state, { products }) => ({
     ...state,
-    products: products, // Сохраняем все загруженные товары
-    filteredProducts: products, // Изначально отфильтрованные товары - это все товары
-    loading: false, // Загрузка завершена
+    products: products, 
+    filteredProducts: products, 
+    loading: false, 
   })),
   on(ProductsActions.loadProductsFailure, (state, { error }) => ({
     ...state,
-    loading: false, // Загрузка завершена с ошибкой
-    error: error, // Сохраняем ошибку
+    loading: false, 
+    error: error, 
   })),
   on(
     ProductsActions.filterProducts,
     (state, { category, minPrice, maxPrice, minRating }) => {
-      let filtered = [...state.products]; // Начинаем с исходных товаров
+      let filtered = [...state.products];
 
       if (category && category !== 'All') {
         filtered = filtered.filter((product) => product.category === category);
@@ -54,34 +54,34 @@ export const productsReducer = createReducer(
 
       return {
         ...state,
-        filteredProducts: filtered, // Обновляем отфильтрованный список
+        filteredProducts: filtered, 
       };
     }
   ),
   on(ProductsActions.sortProducts, (state, { sortBy }) => {
-    let sorted = [...state.filteredProducts]; // Сортируем текущий отфильтрованный список
+    let sorted = [...state.filteredProducts]; 
 
     switch (sortBy) {
       case 'popularity':
-        sorted.sort((a, b) => b.popularity - a.popularity); // По убыванию популярности
+        sorted.sort((a, b) => b.popularity - a.popularity); 
         break;
       case 'price':
-        sorted.sort((a, b) => a.price - b.price); // По возрастанию цены
+        sorted.sort((a, b) => a.price - b.price); 
         break;
       case 'newest':
         sorted.sort(
-          (a, b) => b.releaseDate.getTime() - a.releaseDate.getTime() // По убыванию даты выпуска
+          (a, b) => b.releaseDate.getTime() - a.releaseDate.getTime() 
         );
         break;
       case 'none':
       default:
-        // Возвращаемся к исходному порядку, если доступно, или ничего не делаем
+    
         sorted = [...state.products];
         break;
     }
     return {
       ...state,
-      filteredProducts: sorted, // Обновляем отсортированный список
+      filteredProducts: sorted, 
     };
   })
 );

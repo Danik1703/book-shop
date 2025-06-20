@@ -1,26 +1,41 @@
 <div class="cart-container" *ngIf="cartItems$ | async as cartItems">
-  <h2>Корзина</h2>
-  <div *ngIf="cartItems.length === 0">Корзина пуста</div>
+  <h2>🛒 Ваш кошик</h2>
 
-  <mat-list *ngIf="cartItems.length > 0">
-    <mat-list-item *ngFor="let item of cartItems">
-      <img matListAvatar [src]="item.product.imageUrl" alt="{{ item.product.name }}" />
-      <h4 matLine>{{ item.product.name }}</h4>
-      <p matLine>{{ item.product.price | currency:'USD' }} x {{ item.quantity }}</p>
-      <mat-form-field>
-        <input
-          matInput
-          type="number"
-          min="1"
-          [value]="item.quantity"
-          (change)="onQuantityChange(item.product.id, $event)"
-        />
-      </mat-form-field>
+  <div *ngIf="cartItems.length === 0" class="empty-cart">
+    Кошик порожній. Додайте книги для оформлення замовлення.
+  </div>
+
+  <div *ngIf="cartItems.length > 0" class="cart-list">
+    <div class="cart-item" *ngFor="let item of cartItems">
+      <img class="book-image" [src]="item.product.imageUrl" [alt]="item.product.name" />
+
+      <div class="book-info">
+        <h3>{{ item.product.name }}</h3>
+        <p class="author">Автор: {{ item.product.author }}</p>
+        <p class="price">{{ item.product.price | currency:'USD' }} x {{ item.quantity }}</p>
+
+        <mat-form-field appearance="outline" class="quantity-field">
+          <input
+            matInput
+            type="number"
+            min="1"
+            [value]="item.quantity"
+            (change)="onQuantityChange(item.product.id, $event)"
+          />
+        </mat-form-field>
+      </div>
+
       <button mat-icon-button color="warn" (click)="onRemove(item.product.id)">
         <mat-icon>delete</mat-icon>
       </button>
-    </mat-list-item>
-  </mat-list>
+    </div>
 
-  <h3>Итого: {{ getTotalPrice(cartItems) | currency:'USD' }}</h3>
+    <div class="cart-footer">
+      <h3>Разом: {{ getTotalPrice(cartItems) | currency:'USD' }}</h3>
+      <div class="cart-actions">
+        <button mat-raised-button color="warn" (click)="onClearCart()">Очистити кошик</button>
+        <button mat-raised-button color="primary">Оформити замовлення</button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,11 +1,11 @@
 <mat-card class="filters-card">
-  <mat-card-title>Фильтры</mat-card-title>
+  <mat-card-title>Фільтри</mat-card-title>
   <mat-card-content [formGroup]="filterForm">
 
     <mat-form-field appearance="fill">
-      <mat-label>Категория</mat-label>
+      <mat-label>Категорія</mat-label>
       <mat-select formControlName="category">
-        <mat-option value="All">Все</mat-option>
+        <mat-option value="All">Усі</mat-option>
         <mat-option *ngFor="let category of allCategories" [value]="category">
           {{ category }}
         </mat-option>
@@ -13,7 +13,7 @@
     </mat-form-field>
 
     <div class="filter-section">
-      <h3>Диапазон цен</h3>
+      <h3>Діапазон цін</h3>
       <mat-slider
         thumbLabel
         tickInterval="1"
@@ -42,7 +42,7 @@
     </div>
 
     <div class="filter-section">
-      <h3>Минимальный рейтинг</h3>
+      <h3>Мінімальний рейтинг</h3>
       <mat-slider
         thumbLabel
         tickInterval="1"
@@ -54,11 +54,11 @@
           [value]="minRatingValue"
           (valueChange)="onRatingSliderChange($event)">
       </mat-slider>
-      <span>{{ minRatingValue }} Звезд</span>
+      <span>{{ minRatingValue }} зірок</span>
     </div>
 
     <mat-form-field appearance="fill">
-      <mat-label>Сортировать по</mat-label>
+      <mat-label>Сортувати за</mat-label>
       <mat-select formControlName="sortBy">
         <mat-option *ngFor="let option of sortByOptions" [value]="option.value">
           {{ option.viewValue }}
@@ -69,6 +69,6 @@
   </mat-card-content>
 
   <mat-card-actions>
-    <button mat-button (click)="clearFilters()">Очистить фильтры</button>
+    <button mat-button (click)="clearFilters()">Очистити фільтри</button>
   </mat-card-actions>
 </mat-card>

@@ -11,11 +11,11 @@ export class FiltersComponent implements OnInit {
 
   filterForm: FormGroup;
 
-allCategories = ['Научная фантастика', 'Романтика', 'Антиутопия', 'Художественная литература', 'Классика'];
+  allCategories = ['Наукова фантастика', 'Романтика', 'Антиутопія', 'Художня література', 'Класика'];
   sortByOptions = [
-    { value: 'priceAsc', viewValue: 'По возрастанию цены' },
-    { value: 'priceDesc', viewValue: 'По убыванию цены' },
-    { value: 'ratingDesc', viewValue: 'По рейтингу' }
+    { value: 'priceAsc', viewValue: 'За зростанням ціни' },
+    { value: 'priceDesc', viewValue: 'За спаданням ціни' },
+    { value: 'ratingDesc', viewValue: 'За рейтингом' }
   ];
 
   minPriceValue = 0;

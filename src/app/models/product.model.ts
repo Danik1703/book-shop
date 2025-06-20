@@ -8,4 +8,5 @@ export interface Product {
   rating: number;
   popularity: number;
   releaseDate: Date;
+  author?: string;
 }
