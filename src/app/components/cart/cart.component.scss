@@ -1,0 +1,60 @@
+.cart-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 16px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    margin-bottom: 16px;
+    font-weight: 600;
+    color: #3f51b5; // Цвет заголовка (материал)
+  }
+
+  mat-list {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 16px;
+
+    mat-list-item {
+      display: flex;
+      align-items: center;
+      padding: 8px 0;
+
+      img[matListAvatar] {
+        width: 48px;
+        height: 48px;
+        border-radius: 4px;
+        object-fit: cover;
+        margin-right: 16px;
+      }
+
+      h4[matLine] {
+        flex: 1;
+        font-weight: 500;
+      }
+
+      p[matLine] {
+        margin-right: 16px;
+        color: #555;
+      }
+
+      mat-form-field {
+        width: 80px;
+        margin-right: 16px;
+      }
+
+      button {
+        align-self: center;
+      }
+    }
+  }
+
+  h3 {
+    text-align: right;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #222;
+  }
+}

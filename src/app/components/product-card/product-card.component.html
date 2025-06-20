@@ -1,0 +1,15 @@
+<mat-card class="product-card">
+  <img mat-card-image [src]="product.imageUrl" [alt]="product.name" />
+  <mat-card-content>
+    <mat-card-title>{{ product.name }}</mat-card-title>
+    <mat-card-subtitle>{{ product.category }}</mat-card-subtitle>
+    <p class="product-description">{{ product.description }}</p>
+    <p class="product-price">{{ product.price | currency : 'USD' }}</p>
+    <div class="product-rating">Рейтинг: {{ product.rating }} / 5</div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="onAddToCart()">
+      Добавить в корзину
+    </button>
+  </mat-card-actions>
+</mat-card>

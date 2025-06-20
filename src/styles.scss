@@ -1,0 +1,10 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css'; // Выберите одну из доступных тем
+/* Например, другие темы:
+   @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+   @import '@angular/material/prebuilt-themes/pink-bluegrey.css';
+   @import '@angular/material/prebuilt-themes/purple-green.css';
+*/
+
+/* Базовые стили для body/html (если их нет в других ваших файлах) */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
