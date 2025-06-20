@@ -3,11 +3,11 @@ import { CartItem } from '../models/cart-item.model';
 
 export interface AppState {
   products: {
-    products: Product[]; // Все загруженные товары
-    loading: boolean; // Флаг загрузки
-    error: any; // Ошибка, если есть
+    products: Product[]; 
+    loading: boolean; 
+    error: any; 
   };
   cart: {
-    items: CartItem[]; // Элементы в корзине
+    items: CartItem[];
   };
 }

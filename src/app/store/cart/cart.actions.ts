@@ -15,3 +15,7 @@ export const updateCartQuantity = createAction(
   '[Корзина] Обновить количество в корзине',
   props<{ productId: string; quantity: number }>()
 );
+
+export const clearCart = createAction(
+  '[Корзина] Очистить корзину' 
+);
